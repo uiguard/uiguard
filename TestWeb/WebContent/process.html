@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>处理页面</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript">
+			function getParams() {//获取浏览器参数
+				var querys = window.location.search.replace("?", "").split(/[&]/);
+				var params = {};
+				for(i in querys){
+					if (i !== "") {
+						var kv = querys[i].split('=');
+						if (kv.length == 2) {
+							if(params[kv[0]]){//如果该项存在，则叠加
+								//URI解码,对应浏览器的一次encodeURIComponent编码
+								params[kv[0]] += ","+decodeURIComponent(kv[1]);
+							}else{
+								params[kv[0]] = decodeURIComponent(kv[1]);
+							}
+						}
+					}
+				}
+				return params;
+			}
+			function loadDetails(){//加载个人信息
+				var params = getParams();
+				for(k in params){
+					document.getElementById(k).innerHTML=params[k];
+				}
+			}
+		</script>
+	</head>
+	<body onload="loadDetails()">
+		<div>
+			<h1>您的个人信息：</h1>
+			<div class="personalDetails">
+				姓名：<span id="name"></span><br/>
+				性别：<span id="sex"></span><br/>
+				年龄：<span id="age"></span><br/>
+				国籍：<span id="nationality"></span><br/>
+				爱好：<span id="habbies"></span><br/>
+				照片：<span id="pic"></span><br/>
+				随机数：<span id="randNum"></span><br/>
+			</div>
+		</div>
+		<a href="frame.html">看看iframe吧</a>
+	</body>
+</html>

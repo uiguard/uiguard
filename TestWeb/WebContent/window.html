@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>弹出窗口</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript">
+			function randomNumber(){//3秒钟后生成随机数
+				setTimeout("document.getElementById('randomNumber').innerHTML=Math.random();"
+						+"document.getElementById('ok').disabled=false;",3000)
+			}
+			function ok(){
+				window.returnValue = document.getElementById('randomNumber').innerHTML;	
+				window.close();
+			}
+		</script>
+	</head>
+	<body onload="randomNumber()">
+		随机数3秒后才出现：
+		<div id="randomNumber"></div>
+		<button onclick="ok()" id="ok" disabled="true">确定</button>
+	</body>
+</html>

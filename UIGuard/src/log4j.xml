@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "./log4j.dtd">
+<log4j:configuration>
+	<appender name="infoAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="Append" value="true" />
+		<param name="File" value="log/logAllInOne/info.log " />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d [%t] %p %X{operationName} %X{userId} - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="info"/>
+			<param name="levelMax" value="error"/>
+			<param name="AcceptOnMatch" value="true"/>
+		</filter>
+	</appender>
+	<appender name="traceAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="Append" value="true" />
+		<param name="File" value="log/logAllInOne/trace.log " />
+		<param name="MaxFileSize" value="100MB" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d [%t] %p %X{operationName} %X{userId} - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="trace"/>
+			<param name="levelMax" value="error"/>
+			<param name="AcceptOnMatch" value="true"/>
+		</filter>
+	</appender>
+	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %p %X{operationName} %X{userId} - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="info"/>
+			<param name="levelMax" value="error"/>
+			<param name="AcceptOnMatch" value="true"/>
+		</filter>
+	</appender>
+	<logger name="com.uigurad" additivity="false">
+		<level value="trace" />
+		<appender-ref ref="infoAppender" />
+		<appender-ref ref="traceAppender" />
+		<appender-ref ref="consoleAppender" />
+	</logger>
+	
+	<root>
+		<level value="error" />
+		<appender-ref ref="traceAppender" />
+	</root>
+</log4j:configuration>

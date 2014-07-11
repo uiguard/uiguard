@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>演示</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="demo.css" type="text/css">
+		<script type="text/javascript">
+			function popWindow(){
+				var randNum=window.showModalDialog("window.html","randNum","dialogWidth:500px;dialogHeight=400px;status:no");
+				document.getElementsByName('randNum')[0].value=randNum;
+			}
+			function checkAndSubmit(){
+				var form = document.forms[0];
+				if(!form.name.value){
+					alert("姓名必须填写!");
+					return false;
+				}
+				form.submit();
+			}
+		</script>
+	</head>
+	<body>
+		<div>个人信息</div>
+		<form action="process.html" method="get" onsubmit="return false;"><!-- get提交，仅作演示用 -->
+			姓名：<input type="text" name="name"/><br/>
+			性别：<input type="radio" name="sex" value="男" checked="checked"/>男&nbsp;
+				 <input type="radio" name="sex" value="女"/>女<br/>
+			年龄：<select name="age">
+				 	<option value="0~7">0~7</option>
+				 	<option value="8~17">8~17</option>
+				 	<option value="18~28">18~28</option>
+				 	<option value="29~45">29~45</option>
+				 	<option value="46~65">46~65</option>
+				 	<option value="66~">66~</option>
+				 </select><br/>
+			国籍：<input type="text" name="nationality" value="中国"/><br/>
+			爱好：<input type="checkbox" name="habbies" value="运动"/>运动&nbsp;
+				 <input type="checkbox" name="habbies" value="影视"/>影视&nbsp;
+				 <input type="checkbox" name="habbies" value="音乐"/>音乐&nbsp;
+				 <input type="checkbox" name="habbies" value="旅游"/>旅游&nbsp;
+				 <input type="checkbox" name="habbies" value="上网"/>上网&nbsp;
+				 <input type="checkbox" name="habbies" value="读书"/>读书&nbsp;
+				 <input type="checkbox" name="habbies" value="购物"/>购物&nbsp;
+				 <input type="checkbox" name="habbies" value="美食"/>美食&nbsp;<br/>
+			照片：<input type="file" name="pic" /><br/>
+			随机数：<input type="text" name="randNum"/><input type="button" onclick="popWindow()" value="获取随机数"/><br/>
+			<input type="submit" value="提交" onclick="checkAndSubmit()"/>
+		</form>
+	</body>
+</html>

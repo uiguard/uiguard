@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/UIGuard"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/UiGuardSeleniumTransformer"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/UiGuardSupport"/>
+	<classpathentry kind="lib" path="/UIGuard/lib/db2jcc_license_cisuz.jar"/>
+	<classpathentry kind="lib" path="/UIGuard/lib/db2jcc_license_cu.jar"/>
+	<classpathentry kind="lib" path="/UIGuard/lib/db2jcc.jar"/>
+	<classpathentry kind="lib" path="/UIGuard/lib/dbunit-2.4.9.jar"/>
+	<classpathentry kind="lib" path="/UIGuard/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="/UIGuard/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="/UIGuard/lib/poi-3.2-FINAL-20081019.jar"/>
+	<classpathentry kind="lib" path="/UIGuard/lib/slf4j-api-1.6.6.jar"/>
+	<classpathentry kind="lib" path="/UIGuard/lib/testng-6.8.5.jar"/>
+	<classpathentry kind="lib" path="/UiGuardSeleniumTransformer/lib/selenium-server-standalone-2.37.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
